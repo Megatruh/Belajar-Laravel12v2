@@ -27,6 +27,13 @@
 	- `export default defineConfig({ plugins: [tailwindcss()], });`
 - [x] Hapus `postcss.config.js`
 
+### Video 2: Setup SMTP Gmail
+
+- [x] Buat akun Google dummy
+- [x] Setting 2FA / A2F
+- [x] Generate password baru untuk aplikasi
+- [x] Edit file `.env` bagian `MAIL`
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:

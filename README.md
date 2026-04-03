@@ -7,6 +7,26 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+## Progres
+
+### Video 1: Setup Breeze
+
+- [x] Instalasi Breeze
+	- `composer require laravel/breeze --dev`
+	- `php artisan breeze:install`
+- [x] Migrasi database
+	- `php artisan migrate`
+- [x] Instal dependency frontend
+	- `npm install`
+	- `npm run dev`
+- [x] Update Tailwind
+	- `npx @tailwindcss/upgrade`
+- [x] Update `vite.config.js`
+	- `import { defineConfig } from "vite";`
+	- `import tailwindcss from "@tailwindcss/vite";`
+	- `export default defineConfig({ plugins: [tailwindcss()], });`
+- [x] Hapus `postcss.config.js`
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:

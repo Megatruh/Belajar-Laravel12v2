@@ -34,6 +34,30 @@
 - [x] Generate password baru untuk aplikasi
 - [x] Edit file `.env` bagian `MAIL`
 
+### Video 3: Register Username & Login dengan Email atau Username
+
+- [x] Tambah kolom `username` di migration users
+	- `database/migrations/0001_01_01_000000_create_users_table.php`
+- [x] Izinkan `username` untuk mass assignment pada model User
+	- `app/Models/User.php`
+- [x] Update proses registrasi agar menyimpan `username`
+	- `app/Http/Controllers/Auth/RegisteredUserController.php`
+	- Validasi `username`: required, alpha_num, min 4, unique
+	- Validasi email diperketat dengan `email:dns`
+- [x] Update form register untuk input `username`
+	- `resources/views/auth/register.blade.php`
+- [x] Ubah autentikasi login agar menerima email atau username (`user_cred`)
+	- `app/Http/Requests/Auth/LoginRequest.php`
+	- Deteksi otomatis credential type (email/username) pada `prepareForValidation()`
+	- `Auth::attempt()` dinamis berdasarkan credential type
+- [x] Update form login dari `email` menjadi `user_cred`
+	- `resources/views/auth/login.blade.php`
+- [x] Tambah dukungan update `username` pada halaman Edit Profile
+	- `app/Http/Requests/ProfileUpdateRequest.php`
+	- Validasi `username` saat update profile: required, alpha_num, min 4, max 50, unique (ignore current user)
+	- `resources/views/profile/partials/update-profile-information-form.blade.php`
+	- Tambah field `username` pada form edit profile
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:

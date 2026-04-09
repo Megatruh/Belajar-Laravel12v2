@@ -70,6 +70,23 @@
 	- Menambahkan dukungan typography untuk styling konten (artikel/post)
 	- Menyesuaikan class dan tampilan agar lebih konsisten dengan layout project
 
+### Video 5: Setup Navbar
+
+- [x] Refactor komponen link navbar ke custom component `x-my-nav-link`
+	- Update link menu desktop & mobile: Home, Blog, About, Contact
+	- File: `resources/views/components/navbar.blade.php`
+- [x] Tambah kondisi autentikasi pada navbar (`Auth::check()`)
+	- User login: tampil dropdown profile + nama user
+	- Guest: tampil link Login dan Register
+- [x] Integrasi menu akun pada desktop
+	- Menu: `Your profile`, `Settings`, dan tombol `Log out` (POST + CSRF)
+- [x] Integrasi menu akun pada mobile
+	- User login: tampil nama, email, profile/settings/sign out
+	- Guest: tampil Login/Register
+- [x] Ganti avatar profile desktop ke aset lokal
+	- Gunakan `asset('IMG/Profile/farhan.jpg')`
+	- Tambah file baru: `public/IMG/Profile/farhan.jpg`
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:

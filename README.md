@@ -58,6 +58,18 @@
 	- `resources/views/profile/partials/update-profile-information-form.blade.php`
 	- Tambah field `username` pada form edit profile
 
+### Video 4: Integrasi Project Lama + Flowbite
+
+- [x] Merge hasil belajar dari project Laravel 12 sebelumnya ke project saat ini (Breeze)
+	- Menyesuaikan struktur lama agar kompatibel dengan starter kit Breeze
+	- Migrasi bagian fitur/tampilan yang sudah pernah dibuat sebelumnya
+- [x] Instalasi Flowbite UI
+	- Menambahkan package Flowbite untuk komponen UI berbasis Tailwind
+	- Menyesuaikan konfigurasi frontend agar komponen bisa digunakan di Blade
+- [x] Instalasi Flowbite Typography
+	- Menambahkan dukungan typography untuk styling konten (artikel/post)
+	- Menyesuaikan class dan tampilan agar lebih konsisten dengan layout project
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:

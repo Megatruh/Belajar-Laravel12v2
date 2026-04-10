@@ -4,5 +4,5 @@
 <img
     src="{{ asset('IMG/newLogo.png') }}"
     alt="Nahraf Blog"
-    {{ $attributes->merge(['class' => 'w-75']) }}
+    {{ $attributes->merge(['class' => 'w-30 my-2']) }}
 >

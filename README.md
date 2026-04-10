@@ -87,6 +87,34 @@
 	- Gunakan `asset('IMG/Profile/farhan.jpg')`
 	- Tambah file baru: `public/IMG/Profile/farhan.jpg`
 
+### Video 6: Setup Controller (Progress)
+
+- [x] Generate controller resource untuk dashboard post
+	- File baru: `app/Http/Controllers/PostDashboardController.php`
+	- Method `index()` menyiapkan data post terbaru: `Posts::latest()->get()`
+- [x] Pindahkan route dashboard dari closure ke controller
+	- Update `routes/web.php`
+	- Dari: `Route::get('/dashboard', fn () => view('dashboard'))`
+	- Menjadi: `Route::get('/dashboard', [PostDashboardController::class, 'index'])`
+	- Middleware tetap: `auth` dan `verified`
+- [x] Kirim data post ke view dashboard
+	- View `dashboard` menerima variable `posts`
+	- Tampilan awal menampilkan output data `{{ $posts }}` sebagai progress integrasi
+- [x] Tambah greeting user login di dashboard (popup 3 detik)
+	- Update `resources/views/dashboard.blade.php`
+	- Menggunakan Alpine (`x-data`, `x-show`, `x-transition`, `setTimeout`)
+	- Posisi popup dibuat center horizontal (`left-1/2 -translate-x-1/2`)
+- [x] Integrasi behavior navbar hide/show on scroll ke layout Breeze
+	- Tambah logic scroll di `resources/js/app.js`
+	- Target elemen dengan id `navbar`
+	- Scroll turun: navbar sembunyi (`translateY(-100%)`), scroll naik: muncul lagi (`translateY(0)`)
+- [x] Sesuaikan layout agar kompatibel dengan navbar fixed
+	- Update `resources/views/layouts/navigation.blade.php` (navbar fixed + transition)
+	- Update `resources/views/layouts/app.blade.php` (tambah spacer `h-16`)
+- [x] Penyesuaian tampilan guest/auth screen
+	- Update `resources/views/layouts/guest.blade.php` (background dan spacing logo/card)
+	- Update `resources/views/components/application-logo.blade.php` (class logo default)
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:

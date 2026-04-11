@@ -12,7 +12,8 @@ class PostDashboardController extends Controller
      */
     public function index()
     {
-        return view('dashboard', ['posts' => Posts::latest()->get()]);
+        $posts = Posts::paginate(9)->withQueryString();
+        return view('dashboard', compact('posts'));
     }
 
     /**

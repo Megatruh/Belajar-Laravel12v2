@@ -115,6 +115,30 @@
 	- Update `resources/views/layouts/guest.blade.php` (background dan spacing logo/card)
 	- Update `resources/views/components/application-logo.blade.php` (class logo default)
 
+### Video 7: Setup data posts
+
+- [x] Ubah query dashboard menjadi paginasi
+	- Update `app/Http/Controllers/PostDashboardController.php`
+	- Dari `Posts::latest()->get()` menjadi `Posts::paginate(9)->withQueryString()`
+	- Kirim data ke view menggunakan `compact('posts')`
+- [x] Integrasi tabel post sebagai komponen Blade di dashboard
+	- Update `resources/views/dashboard.blade.php`
+	- Dari output mentah `{{ $posts }}` menjadi `<x-posts.table :posts="$posts"/>`
+	- Penyesuaian spacing section dashboard (`py-12` -> `py-3`)
+- [x] Tambah komponen tabel post untuk menampilkan data dinamis
+	- File baru: `resources/views/components/posts/table.blade.php`
+	- Menampilkan kolom: nomor urut, title, author, category, city, created at
+	- Nomor urut menggunakan loop Blade: `{{ $loop->iteration }}`
+	- Aksi per baris memakai id dropdown dinamis: `post-{{$post->id}}-dropdown`
+	- Tambah navigasi halaman: `{{ $posts->links() }}`
+- [x] Aktivasi komponen interaktif Flowbite di frontend
+	- Update `resources/js/app.js` dengan `import 'flowbite';`
+	- Modal/dropdown Flowbite siap dipakai di komponen tabel
+- [x] Sinkronisasi warna `primary-*` agar komponen Flowbite tampil konsisten
+	- Update `resources/css/app.css`
+	- Tambah mapping `--color-primary-50` sampai `--color-primary-950`
+	- Tambah safelist beberapa utility warna untuk menjaga class tetap tergenerate
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:

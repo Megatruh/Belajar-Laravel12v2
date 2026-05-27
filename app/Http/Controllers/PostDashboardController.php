@@ -13,12 +13,12 @@ class PostDashboardController extends Controller
      */
     public function index()
     {
-        $posts = Posts::query()
-            ->where('author_id', Auth::user()->id)
-            ->filter(request(['keyword']))
-            ->paginate(9)
-            ->withQueryString();
-        return view('dashboard', ['posts' => $posts]);
+        $posts = Posts::query()->where('author_id', Auth::user()->id);
+
+        if(request('keyword')) {
+            $posts->where('title', 'like', '%' . request('keyword') . '%');
+        }
+        return view('dashboard', ['posts' => $posts->paginate(9)->withQueryString()]);
     }
 
     /**

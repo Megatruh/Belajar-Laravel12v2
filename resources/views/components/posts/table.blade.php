@@ -5,6 +5,9 @@
         <div class="bg-white dark:bg-gray-800 relative border sm:rounded-lg overflow-hidden">
             <div class="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
                 <div class="w-full md:w-1/2">
+                    <h2 class="font-semibold text-xl text-gray-800 leading-tight m-4">
+                        Post by {{ auth()->user()->name }}
+                    </h2>
                     <form class="flex items-center" method="GET">
                         <label for="simple-search" class="sr-only">Search</label>
                         <div class="relative w-full">
@@ -19,7 +22,7 @@
                             autocomplete="off"
                             value="{{ request('keyword') }}"
                             id="simple-search"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full pl-10 p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Search">
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full pl-10 p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Search Title ...">
                         </div>
                     </form>
                 </div>
@@ -95,7 +98,12 @@
                             </td>
                         </tr>
                         @empty
-                            <p class="text-center text-gray-500">No posts found. <a href="/blog" class="text-blue-500 hover:underline">Back to Blog</a></p>
+                            {{-- <p class="text-center text-gray-500">No posts found. <a href="/blog" class="text-blue-500 hover:underline">Back to Blog</a></p> --}}
+                            <tr>
+                                <td colspan="7" class="text-center py-4">
+                                    No post found for "{{ request('keyword') }}"
+                                </td>
+                            </tr>
                         @endforelse
                     </tbody>
                 </table>

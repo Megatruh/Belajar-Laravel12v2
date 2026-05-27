@@ -1,7 +1,8 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            Post by {{ auth()->user()->name }}
+            {{-- Post by {{ auth()->user()->name }} --}}
+            Dashboard
         </h2>
     </x-slot>
 

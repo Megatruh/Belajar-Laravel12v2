@@ -94,8 +94,13 @@ Route::get('/contact', function () {
 
 
 Route::middleware('auth')->group(function () {
-    //urus crud
-    Route::get('/dashboard', [PostDashboardController::class, 'index'])->name('dashboard');
+    // urus crud posts
+    Route::name('dashboard.')->prefix('dashboard')->group(function () {
+        // tampilan tabel data
+        Route::get('/', [PostDashboardController::class, 'index'])->name('index');
+        // tampilan show post
+        Route::get('/{post:slug}', [PostDashboardController::class, 'show'])->name('show');
+    });
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

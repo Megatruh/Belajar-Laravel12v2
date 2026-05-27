@@ -1,8 +1,4 @@
 <x-layout :title="$title">
-    {{--
-    TODO :
-    - Tambah breadcrubs : Home > Category > Post Title
-    --}}
     <x-header :title="$title" :post="$post"/>
 <main class="pt-8 pb-16 lg:pt-16 lg:pb-24 max-w-4xl mx-auto bg-white dark:bg-gray-900 antialiased">
     <div class="flex justify-between px-4 mx-auto max-w-screen-xl ">

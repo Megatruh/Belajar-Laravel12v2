@@ -18,7 +18,7 @@ class PostDashboardController extends Controller
         if(request('keyword')) {
             $posts->where('title', 'like', '%' . request('keyword') . '%');
         }
-        return view('dashboard', ['posts' => $posts->paginate(9)->withQueryString()]);
+        return view('dashboard.index', ['posts' => $posts->paginate(9)->withQueryString()]);
     }
 
     /**
@@ -40,9 +40,9 @@ class PostDashboardController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Posts $post)
     {
-        //
+        return view('dashboard.show', ['post' => $post]);
     }
 
     /**

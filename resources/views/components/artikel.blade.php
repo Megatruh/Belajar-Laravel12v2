@@ -1,7 +1,3 @@
-{{--
-    TODO :
-    - tambah tombol search yang mengambang di pojok kanan bawah, kalau di klik muncul form search yang bisa diisi untuk mencari artikel berdasarkan judul atau isi artikel
- --}}
 <article class="p-6 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
     <div class="flex flex-col gap-2 justify-between items-left mb-3 text-gray-500">
         <a href="/blog?category={{ $posts->category->slug}}">

@@ -7,6 +7,7 @@ use App\Models\Posts;
 use Illuminate\Support\Facades\Route;
 
 
+
 Route::get('/', function (Posts $posts) {
     return view('home', [
         'title'=> 'Home Page',
@@ -31,13 +32,7 @@ Route::get( '/blog/{posts:slug}', function (Posts $posts){
 
 
 Route::get( '/blog?city={city}', function ($city){
-    // $posts = Posts::where('city', $city)->with(['category', 'author'])->get();
-    // return view( 'blog', [
-    //     'title' => $posts->count() . ' Articles on '. $city,
-    //     'posts' => $posts
-    // ]);
-
-    $posts = Posts::where('city', $city)->get();
+    $posts = Posts::query()->where('city', $city)->get();
     return view( 'blog', [
         'title' => $posts->count() . ' Articles on '. $city,
         'posts' => $posts
@@ -47,14 +42,7 @@ Route::get( '/blog?city={city}', function ($city){
 
 Route::get( '/date/{date}', function ($date){
 
-    // $posts = Posts::where('date', $date)->with(['category', 'author'])->get();
-
-    // return view( 'blog', [
-    //     'title' => $posts->count() . ' Articles on '. $date,
-    //     'posts' => $posts
-    // ]);
-
-    $posts = Posts::where('date', $date)->get();
+    $posts = Posts::query()->where('date', $date)->get();
 
     return view( 'blog', [
         'title' => $posts->count() . ' Articles on '. $date,
@@ -64,14 +52,7 @@ Route::get( '/date/{date}', function ($date){
 
 Route::get( '/blog?category={category:slug}', function (Category $category){
 
-    // $posts = Posts::where('category_id', $category->id)->with(['category', 'author'])->get();
-
-    // return view( 'blog', [
-    //     'title' => $posts->count() . ' Articles About '. $category->name,
-    //     'posts' => $posts
-    // ]);
-
-    $posts = Posts::where('category_id', $category->id)->get();
+    $posts = Posts::query()->where('category_id', $category->id)->get();
 
     return view( 'blog', [
         'title' => $posts->count() . ' Articles About '. $category->name,
@@ -88,16 +69,13 @@ Route::get('/contact', function () {
 });
 
 
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// })->middleware(['auth', 'verified'])->name('dashboard');
-
-
 Route::middleware('auth')->group(function () {
     // urus crud posts
     Route::name('dashboard.')->prefix('dashboard')->group(function () {
         // tampilan tabel data
         Route::get('/', [PostDashboardController::class, 'index'])->name('index');
+        // tambah data post
+        Route::get('/create', [PostDashboardController::class, 'create'])->name('create');
         // tampilan show post
         Route::get('/{post:slug}', [PostDashboardController::class, 'show'])->name('show');
     });

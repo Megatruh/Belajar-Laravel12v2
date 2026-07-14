@@ -1,4 +1,4 @@
-<?php
+te<?php
 
 use App\Models\User;
 
@@ -17,7 +17,7 @@ test('users can authenticate using the login screen', function () {
     ]);
 
     $this->assertAuthenticated();
-    $response->assertRedirect(route('dashboard', absolute: false));
+    $response->assertRedirect(route('dashboard.index', absolute: false));
 });
 
 test('users can not authenticate with invalid password', function () {
